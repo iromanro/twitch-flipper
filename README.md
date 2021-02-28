@@ -1,8 +1,6 @@
-# QA Ninja
+# Twitch Flipper
 
-A browser extension toolkit for Quality Analysts
-
-[Available on the Chrome store](https://chrome.google.com/webstore/detail/qa-ninja/lnaljjlmclecjjncpigdhginelcpbphc)
+A browser extension toolkit for flipping through Twitch channels
 
 # Development
 
