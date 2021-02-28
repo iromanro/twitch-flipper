@@ -1,0 +1,16 @@
+.edit-page {
+  position: relative;
+
+  .reset-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 1.5rem;
+  }
+
+  .actions {
+    .save-button {
+      float: right;
+    }
+  }
+}
