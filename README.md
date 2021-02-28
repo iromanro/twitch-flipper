@@ -1,6 +1,6 @@
 # Twitch Flipper
 
-A browser extension toolkit for flipping through Twitch channels
+A browser extension for flipping through Twitch channels
 
 # Development
 
