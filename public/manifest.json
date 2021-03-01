@@ -1,23 +1,23 @@
 {
-  "name": "QA Ninja",
+  "name": "Twitch Flipper",
   "manifest_version": 2,
-  "version": "0.1.6",
-  "description": "Toolkit for Quality Analysts",
+  "version": "0.0.1",
+  "description": "Flip through Twitch channels",
   "permissions": ["declarativeContent"],
   "background": {
     "scripts": ["background.js"],
     "persistent": false
   },
   "page_action": {
-    "default_icon": "quality-ninja-32.png",
-    "default_title": "QA Ninja",
+    "default_icon": "twitch-flipper-32.png",
+    "default_title": "Twitch Flipper",
     "default_popup": "index.html"
   },
   "icons": {
-    "16": "quality-ninja-16.png",
-    "32": "quality-ninja-32.png",
-    "48": "quality-ninja-48.png",
-    "128": "quality-ninja-128.png"
+    "16": "twitch-flipper-16.png",
+    "32": "twitch-flipper-32.png",
+    "48": "twitch-flipper-48.png",
+    "128": "twitch-flipper-128.png"
   },
   "commands": {
     "copy-bug-template": {

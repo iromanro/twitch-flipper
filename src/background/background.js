@@ -17,7 +17,7 @@ browser.runtime.onInstalled.addListener(() => {
         conditions: [
           new browser.declarativeContent.PageStateMatcher({
             pageUrl: {
-              urlMatches: '.*',
+              urlMatches: "twitch.tv",
             },
           }),
         ],
@@ -27,16 +27,16 @@ browser.runtime.onInstalled.addListener(() => {
   });
 });
 
-// browser.commands.onCommand.addListener(command => {
-//   switch (command) {
-//     case 'copy-bug-template':
-//       copyToClipboard('bug');
-//       break;
+browser.commands.onCommand.addListener((command) => {
+  switch (command) {
+    case "copy-bug-template":
+      copyToClipboard("bug");
+      break;
 
-//     case 'copy-qa-report-template':
-//       copyToClipboard('qa-report');
-//       break;
+    case "copy-qa-report-template":
+      copyToClipboard("qa-report");
+      break;
 
-//     default:
-//   }
-// });
+    default:
+  }
+});
