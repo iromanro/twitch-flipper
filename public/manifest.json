@@ -1,0 +1,38 @@
+{
+  "name": "QA Ninja",
+  "manifest_version": 2,
+  "version": "0.1.6",
+  "description": "Toolkit for Quality Analysts",
+  "permissions": ["declarativeContent"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "page_action": {
+    "default_icon": "quality-ninja-32.png",
+    "default_title": "QA Ninja",
+    "default_popup": "index.html"
+  },
+  "icons": {
+    "16": "quality-ninja-16.png",
+    "32": "quality-ninja-32.png",
+    "48": "quality-ninja-48.png",
+    "128": "quality-ninja-128.png"
+  },
+  "commands": {
+    "copy-bug-template": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+A",
+        "mac": "Command+Shift+A"
+      },
+      "description": "Copy bug template"
+    },
+    "copy-qa-report-template": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Z",
+        "mac": "Command+Shift+Z"
+      },
+      "description": "Copy QA report template"
+    }
+  }
+}
