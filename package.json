@@ -9,13 +9,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dan-lovelace/quality-ninja.git"
+    "url": "git+https://github.com/iromanro/twitch-flipper.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dan-lovelace/quality-ninja/issues"
+    "url": "https://github.com/iromanro/twitch-flipper/issues"
   },
   "devDependencies": {
     "@parcel/optimizer-htmlnano": "^2.0.0-nightly.612",
