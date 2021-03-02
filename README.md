@@ -2,6 +2,12 @@
 
 A browser extension for flipping through Twitch channels
 
+# Builds (New)
+
+This project uses ParcelJS to package everything in a manner expected by each browser's extension API. Anything in the `src` directory should be what needs to be packaged (HTML, JS, CSS, etc.) and the `static` directory should hold files that do not need to be bundled.
+
+Builds are executed by running `npm run build` in the root directory and output will go into `dist`.
+
 # Development
 
 This project is divided into two smaller projects, both built independently with webpack:

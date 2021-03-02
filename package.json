@@ -1,56 +1,44 @@
 {
-  "name": "QualityNinja",
-  "version": "0.1.6",
+  "name": "twitch-flipper",
+  "version": "0.0.1",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
-    "build": "npm run build-partial:core && npm run build-partial:popup",
-    "build:production": "bash scripts/build_static.sh production",
-    "build-partial:core": "bash scripts/build_static.sh core",
-    "build-partial:popup": "bash scripts/build_static.sh popup",
-    "lint": "eslint . -c .eslintrc.json --ext js,jsx"
+    "build": "./scripts/build.sh",
+    "start": "react-scripts start"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dan-lovelace/quality-ninja.git"
+    "url": "git+https://github.com/iromanro/twitch-flipper.git"
   },
   "keywords": [],
-  "author": "Dan Lovelace",
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dan-lovelace/quality-ninja/issues"
+    "url": "https://github.com/iromanro/twitch-flipper/issues"
   },
-  "homepage": "https://github.com/dan-lovelace/quality-ninja",
   "devDependencies": {
-    "archiver": "^3.1.1",
-    "babel-eslint": "^10.0.3",
-    "eslint": "^6.6.0",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-config-prettier": "^6.5.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-react": "^7.16.0",
-    "husky": "^3.0.9",
-    "lint-staged": "^9.4.2",
-    "prettier": "^1.18.2"
+    "@parcel/optimizer-htmlnano": "^2.0.0-nightly.612",
+    "@parcel/packager-html": "^2.0.0-nightly.612",
+    "@parcel/transformer-html": "^2.0.0-nightly.612",
+    "@parcel/transformer-posthtml": "^2.0.0-nightly.612",
+    "parcel": "^2.0.0-beta.1"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "CI=true npm test"
-    }
+  "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "^4.0.3"
   },
-  "lint-staged": {
-    "*.js": [
-      "prettier --write --single-quote",
-      "eslint --fix",
-      "git add"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
     ],
-    "*.{json,css,md}": [
-      "prettier --write",
-      "git add"
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
     ]
   }
 }

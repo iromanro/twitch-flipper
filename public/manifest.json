@@ -1,0 +1,38 @@
+{
+  "name": "Twitch Flipper",
+  "manifest_version": 2,
+  "version": "0.0.1",
+  "description": "Flip through Twitch channels",
+  "permissions": ["declarativeContent"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "page_action": {
+    "default_icon": "twitch-flipper-32.png",
+    "default_title": "Twitch Flipper",
+    "default_popup": "index.html"
+  },
+  "icons": {
+    "16": "twitch-flipper-16.png",
+    "32": "twitch-flipper-32.png",
+    "48": "twitch-flipper-48.png",
+    "128": "twitch-flipper-128.png"
+  },
+  "commands": {
+    "copy-bug-template": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+A",
+        "mac": "Command+Shift+A"
+      },
+      "description": "Copy bug template"
+    },
+    "copy-qa-report-template": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Z",
+        "mac": "Command+Shift+Z"
+      },
+      "description": "Copy QA report template"
+    }
+  }
+}
