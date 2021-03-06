@@ -16,3 +16,11 @@ jobs:
         run: |
           pwd
           node -v
+
+          npm run build
+      - name: Zip distribution
+        run: |
+          cd dist
+          zip -r ../new_version.zip .
+          cd ..
+          ls -alrt
