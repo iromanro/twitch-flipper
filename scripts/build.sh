@@ -9,7 +9,7 @@ rm -rf $DIST_DIR
 mkdir -p $DIST_DIR
 
 # copy static files
-cp $PUBLIC_DIR/* $DIST_DIR
+cp -r $PUBLIC_DIR/* $DIST_DIR
 
 # build popup app. this overwrites the previously-copied static index.html 
 # file with one created by the build itself.

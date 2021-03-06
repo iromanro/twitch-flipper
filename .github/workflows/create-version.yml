@@ -1,0 +1,18 @@
+name: create-version
+on:
+  push:
+    branches:
+      - dan-updates
+
+jobs:
+  bump-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: dan-updates
+      - name: Build static files
+        run: |
+          pwd
+          node -v
