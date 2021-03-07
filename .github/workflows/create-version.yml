@@ -37,10 +37,14 @@ jobs:
         run: |
           BUILDS_DIR=builds
           mkdir $BUILDS_DIR
+          ls -al
 
       - name: Zip distribution
         run: |
           cd dist
+          echo BUILDS_DIR = $BUILDS_DIR
+          echo NEW_VERSION_NUMBER = $NEW_VERSION_NUMBER
+          
           zip -r ../$BUILDS_DIR/$NEW_VERSION_NUMBER.zip .
           cd ..
           ls -alrt
