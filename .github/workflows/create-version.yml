@@ -45,7 +45,8 @@ jobs:
           cd ..
           ls -alrt
 
-      - name: Commit new build and push
+      - name: Commit new version and push
         run: |
           git add .
           git commit -m 'new version - $NEW_VERSION_NUMBER'
+          git push
