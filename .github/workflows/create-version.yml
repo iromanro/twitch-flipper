@@ -20,6 +20,7 @@ jobs:
 
       - name: Bump version
         run: |
+          echo "bumping version on branch $(git branch --show-current)"
           npm version patch
           git status
 
