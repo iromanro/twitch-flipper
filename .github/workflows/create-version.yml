@@ -53,5 +53,5 @@ jobs:
           echo VER = $VER
 
           git add .
-          git commit -m 'new version - $NEW_VERSION_NUMBER'
+          git commit -m 'new version - $VER'
           git push
