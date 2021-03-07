@@ -26,7 +26,7 @@ jobs:
 
       - name: Get new version
         run: |
-          export NEW_VERSION_NUMBER=$(node -e "console.log(require('./package.json').version);")
+          echo $(node -e "console.log(require('./package.json').version);") >> $NEW_VERSION_NUMBER 
           echo NEW_VERSION_NUMBER = $NEW_VERSION_NUMBER
 
       - name: Run build script
