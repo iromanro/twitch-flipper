@@ -26,7 +26,7 @@ jobs:
 
       - name: Get new version
         run: |
-          NEW_VERSION_NUMBER=$(node -e "console.log(require('./package.json').version);")
+          export NEW_VERSION_NUMBER=$(node -e "console.log(require('./package.json').version);")
           echo NEW_VERSION_NUMBER = $NEW_VERSION_NUMBER
 
       - name: Run build script
@@ -35,7 +35,7 @@ jobs:
 
       - name: Create builds directory
         run: |
-          BUILDS_DIR=builds
+          export BUILDS_DIR=builds
           mkdir $BUILDS_DIR
           ls -al
 
@@ -44,7 +44,7 @@ jobs:
           cd dist
           echo BUILDS_DIR = $BUILDS_DIR
           echo NEW_VERSION_NUMBER = $NEW_VERSION_NUMBER
-          
+
           zip -r ../$BUILDS_DIR/$NEW_VERSION_NUMBER.zip .
           cd ..
           ls -alrt
