@@ -2,16 +2,16 @@ name: create-version
 on:
   push:
     branches:
-      - dan-updates
+      - master
 
 jobs:
-  bump-version:
+  build-version:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-          ref: dan-updates
+          ref: master
 
       - name: Configure Github credentials
         run: |
