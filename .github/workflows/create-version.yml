@@ -37,7 +37,6 @@ jobs:
 
       - name: Package distribution
         run: |
-          ${{ steps.new_version.outputs.NEW_VERSION_NUMBER }}
           echo "test: ${{ steps.new_version.outputs.NEW_VERSION_NUMBER }}"
           BUILDS_DIR=builds
           mkdir -p $BUILDS_DIR
