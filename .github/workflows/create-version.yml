@@ -22,22 +22,30 @@ jobs:
         run: |
           echo "bumping version on branch $(git branch --show-current)"
           npm version patch
-          git status
-          git push
-
+          # git push
 
       - name: Get new version
         run: |
-          NEW_VERSION=$(node -e "console.log(require('./package.json').version);")
-          echo NEW_VERSION = $NEW_VERSION
+          NEW_VERSION_NUMBER=$(node -e "console.log(require('./package.json').version);")
+          echo NEW_VERSION_NUMBER = $NEW_VERSION_NUMBER
 
       - name: Run build script
         run: |
           npm run build
 
+      - name: Create builds directory
+        run: |
+          BUILDS_DIR=builds
+          mkdir $BUILDS_DIR
+
       - name: Zip distribution
         run: |
           cd dist
-          zip -r ../new_version.zip .
+          zip -r ../$BUILDS_DIR/$NEW_VERSION_NUMBER.zip .
           cd ..
           ls -alrt
+
+      - name: Commit new build and push
+        run: |
+          git add .
+          git commit -m 'new version - $NEW_VERSION_NUMBER'
