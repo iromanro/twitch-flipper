@@ -18,28 +18,24 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
 
-      - name: Bump package version
-        run: |
-          echo "bumping version on branch $(git branch --show-current)"
-          npm version patch
-
-      - name: Update version in manifest.json
-        run: |
-          # TODO: replace "version": "..." with new version
-
-      - name: Run build script
-        run: |
-          npm run build
-
-      - name: Set new version
+      - name: Bump version
         id: new_version
         run: |
+          # increment package.json version
+          npm version patch
+
+          # TODO: increment manifest.json version
+
           # get the new version from package.json
           NEW_VERSION_NUMBER=$(node -e "console.log(require('./package.json').version);")
           echo "new version = $NEW_VERSION_NUMBER"
           
           # set the new version as an output of this step (github syntax)
           echo "::set-output name=NEW_VERSION_NUMBER::$NEW_VERSION_NUMBER"
+
+      - name: Run build script
+        run: |
+          npm run build
 
       - name: Package distribution
         run: |
@@ -53,7 +49,7 @@ jobs:
           # create a file name from the new version
           FILENAME=$VER.zip
 
-          # zip up deployment package
+          # create deployment package and place in builds directory
           cd dist
           zip -r ../$BUILDS_DIR/$FILENAME .
           cd ..
