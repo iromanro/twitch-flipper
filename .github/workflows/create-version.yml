@@ -24,29 +24,26 @@ jobs:
           npm version patch
           # git push
 
-      - name: Get new version
-        run: |
-          echo $(node -e "console.log(require('./package.json').version);") >> $NEW_VERSION_NUMBER 
-          echo NEW_VERSION_NUMBER = $NEW_VERSION_NUMBER
-
       - name: Run build script
         run: |
           npm run build
 
-      - name: Create builds directory
+      - name: Set new version
         run: |
-          export BUILDS_DIR=builds
-          mkdir $BUILDS_DIR
-          ls -al
+          NEW_VERSION_NUMBER=$(node -e "console.log(require('./package.json').version);")
+          echo "::set-env name=NEW_VERSION_NUMBER::$NEW_VERSION_NUMBER"
 
-      - name: Zip distribution
+      - name: Package distribution
         run: |
-          cd dist
-          echo BUILDS_DIR = $BUILDS_DIR
+          BUILDS_DIR=builds
+          mkdir -p $BUILDS_DIR
+
           echo NEW_VERSION_NUMBER = $NEW_VERSION_NUMBER
 
+          cd dist
           zip -r ../$BUILDS_DIR/$NEW_VERSION_NUMBER.zip .
           cd ..
+
           ls -alrt
 
       - name: Commit new version and push
