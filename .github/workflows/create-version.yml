@@ -24,11 +24,12 @@ jobs:
           # increment package.json version
           npm version patch
 
-          # TODO: increment manifest.json version
-
           # get the new version from package.json
           NEW_VERSION_NUMBER=$(node -e "console.log(require('./package.json').version);")
           echo "new version = $NEW_VERSION_NUMBER"
+
+          # increment manifest.json version
+          sed -i.bak -E 's/("version"):\s*"[0-9.]*"/"version": "'${NEW_VERSION_NUMBER}'"/g' ./public/manifest.json
           
           # set the new version as an output of this step (github syntax)
           echo "::set-output name=NEW_VERSION_NUMBER::$NEW_VERSION_NUMBER"
