@@ -25,6 +25,7 @@ jobs:
           git status
           git push
 
+
       - name: Get new version
         run: |
           NEW_VERSION=$(node -e "console.log(require('./package.json').version);")
