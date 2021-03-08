@@ -40,3 +40,26 @@ browser.commands.onCommand.addListener((command) => {
     default:
   }
 });
+
+const networkFilters = {
+  urls : [
+      "*://*.twitch.tv/*"
+  ]
+};
+let currentUrl = '';
+let tabId;
+
+chrome.webRequest.onCompleted.addListener(details => {
+  const parsedUrl = new URL(details.url);
+  console.log(parsedUrl);
+  if (currentUrl && currentUrl.indexOf(parsedUrl.pathname) > -1 && tabId) {
+      chrome.tabs.sendMessage(tabId, { type: 'page-rendered'});
+    }
+}, networkFilters);
+
+chrome.webNavigation.onHistoryStateUpdated.addListener(details => {
+  tabId = details.tabId;
+  currentUrl = details.url;
+  console.log(details);
+}, networkFilters);
+

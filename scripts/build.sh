@@ -20,3 +20,4 @@ cp -r build/* $DIST_DIR
 
 # build assets for chrome process
 npx parcel build src/background/background.js --dist-dir $DIST_DIR
+npx parcel build src/content/controls.js --dist-dir $DIST_DIR

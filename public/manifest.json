@@ -3,11 +3,25 @@
   "manifest_version": 2,
   "version": "0.0.1",
   "description": "Flip through Twitch channels",
-  "permissions": ["declarativeContent"],
+  "permissions": [
+    "*://*.twitch.tv/*",
+    "declarativeContent",
+    "activeTab",
+    "webRequest",
+    "webNavigation"
+  ],
   "background": {
-    "scripts": ["background.js"],
-    "persistent": false
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": true
   },
+  "content_scripts": [
+    {
+      "matches": ["https://www.twitch.tv/*"],
+      "js": ["controls.js"]
+    }
+  ],
   "page_action": {
     "default_icon": "twitch-flipper-32.png",
     "default_title": "Twitch Flipper",
