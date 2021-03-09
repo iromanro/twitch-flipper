@@ -17,7 +17,7 @@ const pages = [
 
 function createButton({ onClick, text, image, imageAlt }) {
   // create new button element
-  const newButton = document.createElement("button");
+  const newButton = document.createElement("div");
 
   // add button class
   newButton.classList.add("btn");
@@ -58,7 +58,13 @@ function handleNavigation() {
       newPageNumber = 0;
     }
 
+    // set the new url
     const to = pages[newPageNumber];
+
+    // update local storage to now so we know when to show a page loader
+    browser.storage.local.set({ lastChange: new Date().getTime() }, () => {
+      console.log("done updating storage");
+    });
 
     // send a redirect message to background.js with the new url
     browser.runtime.sendMessage({ message: "redirect", url: to.page });
