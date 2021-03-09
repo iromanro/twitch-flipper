@@ -1,14 +1,4 @@
-// import { copyToClipboard } from './utils/templates';
-
-function getBrowser() {
-  if (!window.browser) {
-    window.browser = window.chrome;
-  }
-
-  return window.browser;
-}
-
-const browser = getBrowser();
+import browser from "../lib/js/browser";
 
 browser.runtime.onInstalled.addListener(() => {
   browser.declarativeContent.onPageChanged.removeRules(undefined, () => {
@@ -66,6 +56,7 @@ browser.runtime.onMessage.addListener((req, sender, res) => {
     case "redirect":
       const { url } = req;
       browser.tabs.update({ url });
+      break;
 
     default:
       console.error("unknown message");

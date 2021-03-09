@@ -18,11 +18,17 @@
   },
   "content_scripts": [
     {
+      "run_at": "document_start",
       "matches": ["https://www.twitch.tv/*"],
-      "js": ["controls.js"],
-      "css": ["controls.css"]
+      "js": ["content.js"],
+      "css": ["content.css"]
+    },
+    {
+      "matches": ["https://www.twitch.tv/*"],
+      "js": ["controls.js"]
     }
   ],
+  "web_accessible_resources": ["down-arrow.svg", "up-arrow.svg"],
   "page_action": {
     "default_icon": "twitch-flipper-32.png",
     "default_title": "Twitch Flipper",
