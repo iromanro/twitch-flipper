@@ -18,6 +18,9 @@ npx react-scripts build
 # copy popup assets
 cp -r build/* $DIST_DIR
 
-# build assets for chrome process
+# background scripts
 npx parcel build src/background/background.js --dist-dir $DIST_DIR
+
+# content scripts
+npx parcel build src/content/content.js --dist-dir $DIST_DIR
 npx parcel build src/content/controls.js --dist-dir $DIST_DIR

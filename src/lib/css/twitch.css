@@ -1,0 +1,15 @@
+/* 
+
+These are Twitch's own class names. Do not put any custom classes in here.
+
+*/
+
+/* main header */
+nav.top-nav {
+    display: flex;
+}
+
+/* default twitch header content */
+nav.top-nav > div:first-child {
+    flex: 1 1 auto;
+}

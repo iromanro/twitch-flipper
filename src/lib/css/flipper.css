@@ -1,0 +1,56 @@
+.btn {
+    padding: 0 0.5rem;
+    background-color: rgb(145, 71, 255);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 0.25rem;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.btn-image {
+    width: 24px;
+    height: 24px;
+}
+
+.control-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.5rem;
+    height: 5rem; /* twitch header height, subject to change */
+    overflow: hidden;
+}
+
+.control-container > *:first-child {
+    margin-bottom: 0.25rem;
+}
+
+.flipper-loader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 5000;
+    background-color: black;
+    transition: opacity 0.4s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.flipper-loader.show {
+    opacity: 1;
+}
+
+.flipper-loader .control-container {
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: 1;
+    pointer-events: auto;
+}
